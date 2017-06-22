@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Notifications MVC</title>
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/signalr")
+
+</head>
+
+
+<body>
+    <div ng-app="appHub" ng-controller="ctrlHub">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Signalr Hubs - Cliente JS</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="txtMensaje">Mensaje</label>
+                    <input type="text" class="form-control" name="txtMensaje" ng-model="textoEnviar" />
+                </div>
+                <div class="btn-group">
+                    <input type="button" name="btnEnviar" class="btn btn-primary" value="Enviar" ng-click="enviar()" />
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Mensaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="msgObj in mensajes">
+                            <td>{{msgObj.Texto}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="http://localhost:11111/signalr/hubs"></script>
+    <script>
+    var app = angular.module("appHub", []);
+
+    app.value('$', $);
+
+    app.controller("ctrlHub", function ($scope, $http, $) {
+        $scope.mensajes = [];
+        $scope.hub = null;
+        $scope.conexion = null;
+        $scope.textoEnviar = "";
+
+        $scope.iniciar = function () {
+            $.connection.hub.url = "http://localhost:11111/signalr";
+            $scope.hub = $.connection.chatHub;
+
+            $.connection.logging = true;
+            $.connection.hub.start();
+
+            $scope.hub.client.procesarMensaje = function (mensaje) {
+                $scope.$apply(function () {
+                    $scope.mensajes.push(mensaje);
+                });
+            };
+        };
+
+        $scope.enviar = function () {
+            var mensaje = {};
+            alert('hola');
+            mensaje.Tipo = "Mensaje";
+            mensaje.Texto = $scope.textoEnviar;
+            $scope.hub.server.enviarMensaje(mensaje);
+        }
+
+        $scope.iniciar();
+    });
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+

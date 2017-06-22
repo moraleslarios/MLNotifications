@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.Domain", "MLNotification.Domain\MLNotification.Domain.csproj", "{5C076819-F8CD-41D1-9AD8-E09852B844E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.Service", "MLNotification.Service\MLNotification.Service.csproj", "{8096A9FF-BE2A-42C8-9390-70E94C365B25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.WPFClient", "MLNotification.WPFClient\MLNotification.WPFClient.csproj", "{E9BEEC23-0E10-4800-9417-01351398AEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.WPClient2", "MLNotification.WPClient2\MLNotification.WPClient2.csproj", "{4579E225-CC0F-4C73-AAE4-448602591E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.ServiceClientConnect", "MLNotification.ServiceConnection\MLNotification.ServiceClientConnect.csproj", "{0CF7F418-4732-4BE9-9FA6-746CA351A6E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.WPFClient.Tests", "MLNotification.WPFClient.Tests\MLNotification.WPFClient.Tests.csproj", "{FF34B5CA-1D05-4568-B9BB-24632697159C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.WPClient3", "MLNotification.WPClient3\MLNotification.WPClient3.csproj", "{E5AFECCC-6CA1-4261-B2FF-629C5BE69352}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNotification.ConsoleClient", "MLNotification.ConsoleClient\MLNotification.ConsoleClient.csproj", "{671F005D-FA47-43CE-983E-284EE2DD30DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C076819-F8CD-41D1-9AD8-E09852B844E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C076819-F8CD-41D1-9AD8-E09852B844E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C076819-F8CD-41D1-9AD8-E09852B844E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C076819-F8CD-41D1-9AD8-E09852B844E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8096A9FF-BE2A-42C8-9390-70E94C365B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8096A9FF-BE2A-42C8-9390-70E94C365B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8096A9FF-BE2A-42C8-9390-70E94C365B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8096A9FF-BE2A-42C8-9390-70E94C365B25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BEEC23-0E10-4800-9417-01351398AEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BEEC23-0E10-4800-9417-01351398AEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BEEC23-0E10-4800-9417-01351398AEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BEEC23-0E10-4800-9417-01351398AEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4579E225-CC0F-4C73-AAE4-448602591E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4579E225-CC0F-4C73-AAE4-448602591E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4579E225-CC0F-4C73-AAE4-448602591E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4579E225-CC0F-4C73-AAE4-448602591E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF7F418-4732-4BE9-9FA6-746CA351A6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF7F418-4732-4BE9-9FA6-746CA351A6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF7F418-4732-4BE9-9FA6-746CA351A6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF7F418-4732-4BE9-9FA6-746CA351A6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF34B5CA-1D05-4568-B9BB-24632697159C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF34B5CA-1D05-4568-B9BB-24632697159C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF34B5CA-1D05-4568-B9BB-24632697159C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF34B5CA-1D05-4568-B9BB-24632697159C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5AFECCC-6CA1-4261-B2FF-629C5BE69352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5AFECCC-6CA1-4261-B2FF-629C5BE69352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5AFECCC-6CA1-4261-B2FF-629C5BE69352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5AFECCC-6CA1-4261-B2FF-629C5BE69352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{671F005D-FA47-43CE-983E-284EE2DD30DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{671F005D-FA47-43CE-983E-284EE2DD30DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{671F005D-FA47-43CE-983E-284EE2DD30DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{671F005D-FA47-43CE-983E-284EE2DD30DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://moraleslarios.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MLNotification.Domain\\MLNotification.Domain.csproj
+		SccProjectName1 = MLNotification.Domain
+		SccLocalPath1 = MLNotification.Domain
+		SccProjectUniqueName2 = MLNotification.Service\\MLNotification.Service.csproj
+		SccProjectName2 = MLNotification.Service
+		SccLocalPath2 = MLNotification.Service
+		SccProjectUniqueName3 = MLNotification.ServiceConnection\\MLNotification.ServiceClientConnect.csproj
+		SccProjectName3 = MLNotification.ServiceConnection
+		SccLocalPath3 = MLNotification.ServiceConnection
+		SccProjectUniqueName4 = MLNotification.WPClient2\\MLNotification.WPClient2.csproj
+		SccProjectName4 = MLNotification.WPClient2
+		SccLocalPath4 = MLNotification.WPClient2
+		SccProjectUniqueName5 = MLNotification.WPFClient.Tests\\MLNotification.WPFClient.Tests.csproj
+		SccProjectName5 = MLNotification.WPFClient.Tests
+		SccLocalPath5 = MLNotification.WPFClient.Tests
+		SccProjectUniqueName6 = MLNotification.WPFClient\\MLNotification.WPFClient.csproj
+		SccProjectName6 = MLNotification.WPFClient
+		SccLocalPath6 = MLNotification.WPFClient
+		SccProjectUniqueName7 = MLNotification.WPClient3\\MLNotification.WPClient3.csproj
+		SccProjectName7 = MLNotification.WPClient3
+		SccLocalPath7 = MLNotification.WPClient3
+		SccProjectUniqueName8 = MLNotification.ConsoleClient\\MLNotification.ConsoleClient.csproj
+		SccProjectName8 = MLNotification.ConsoleClient
+		SccLocalPath8 = MLNotification.ConsoleClient
+	EndGlobalSection
+EndGlobal

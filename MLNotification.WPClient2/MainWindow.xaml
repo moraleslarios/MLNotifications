@@ -1,0 +1,71 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MLNotification.WPClient2"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:domain="clr-namespace:MLNotification.Domain;assembly=MLNotification.Domain"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+        x:Class="MLNotification.WPClient2.MainWindow"
+        mc:Ignorable="d"
+        ShowTitleBar="False" ShowActivated="False" ShowCloseButton="False" ShowMaxRestoreButton="False" ShowMinButton="False" ShowIconOnTitleBar="False" BorderBrush="Transparent" BorderThickness="0"
+        Title="Window2" Height="700" Width="800" AllowsTransparency="True"  WindowStyle="None" Background="Transparent">
+    <Controls:MetroWindow.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="domain:MessageType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Controls:MetroWindow.Resources>
+    <Border Margin="2,15,15,15" Background="White" CornerRadius="8">
+        <Border.BitmapEffect>
+            <DropShadowBitmapEffect/>
+        </Border.BitmapEffect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="67"/>
+                <RowDefinition/>
+                <RowDefinition Height="68"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0">
+                <TextBlock Text="Send Messages Tests" FontSize="35" FontFamily="Sans-Serif" Foreground="#FF9B9696" />
+
+            </StackPanel>
+            <Grid Grid.Row="1" Background="Gainsboro">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="466*"/>
+                    <ColumnDefinition Width="317*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,10,10,0" >
+                    <TextBox x:Name="txtUrl" Text="http://localhost:11111" Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="Url" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <TextBox x:Name="txtSubject" Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="Subject" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <TextBox x:Name="txtUser" Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="User" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <TextBox x:Name="txtServer" Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="Server" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <ComboBox x:Name="cmbType" ItemsSource="{Binding Source={StaticResource dataFromEnum}}"  Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="Message Type" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <TextBox x:Name="txtUriImage" Margin="8,8,8,8" Controls:TextBoxHelper.Watermark="Url Image" Controls:TextBoxHelper.UseFloatingWatermark="True" TextChanged="txtUriImage_TextChanged"/>
+                </StackPanel>
+                <ListBox x:Name="lstServerMessages" Grid.Column="1" Margin="10,10,20,10"/>
+                <TextBox Grid.Row="1" x:Name="txtMensaje" Margin="18,8,6,8" Controls:TextBoxHelper.Watermark="Message" Controls:TextBoxHelper.UseFloatingWatermark="True" AcceptsReturn="True"/>
+                <Border x:Name="bdImage" HorizontalAlignment="Left" Height="165" Margin="78,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180" CornerRadius="8" Grid.Column="1"/>
+            </Grid>
+            <Border Grid.Row="2" Background="Gainsboro">
+                <Grid   Margin="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Button Content="Send" Click="btnSend_Click" Width="100" Margin="10,0,10,0" Background="#FF2CB3F1"/>
+                        <Button Content="Close" Click="ButtonClose_Click" Width="100" Margin="10,0,10,0" Background="Red" Foreground="White"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Border>
+</Controls:MetroWindow>

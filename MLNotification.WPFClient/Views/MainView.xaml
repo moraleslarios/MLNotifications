@@ -1,0 +1,148 @@
+﻿<Window x:Name="window" x:Class="MLNotification.WPFClient.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MLNotification.WPFClient"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        mc:Ignorable="d"
+        DataContext="{Binding Main, Source={StaticResource Locator} }"
+        Title="Main" Height="400.16" Width="570.35" AllowsTransparency="True"  WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+    <Window.Resources>
+        <Storyboard x:Key="Load">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="window">
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TryToolTipImageAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="270"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Load}"/>
+            
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+
+        <Image x:Name="image" Source="/MLNotification.WPFClient;component/Images/MLNotificationLogo.png"  />
+
+        
+
+        <tb:TaskbarIcon x:Name="tbTaskBarIcon" DoubleClickCommand="{Binding OpenNotificationsCommand}" TrayToolTipOpen="TaskbarIcon_TrayToolTipOpen"
+                        
+                        
+
+      IconSource="/Images/principal.ico"
+
+      >
+            <!--<tb:TaskbarIcon.Triggers>
+                <EventTrigger RoutedEvent="TrayToolTipOpen">
+                    <BeginStoryboard Storyboard="{StaticResource TryToolTipImageAnimation}"/>
+                </EventTrigger>
+            </tb:TaskbarIcon.Triggers>-->
+            <tb:TaskbarIcon.TrayToolTip>
+                <Border Width="350" Height="130" Background="#F22B2A2A">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect/>
+                    </Border.BitmapEffect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="124"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="image1" Source="/MLNotification.WPFClient;component/Images/MLNotificationLogo.png" Margin="6" RenderTransformOrigin="0.5,0.5" >
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Grid Grid.Column="1" Margin="6">
+                            <TextBlock  FontFamily="Segoe UI Semilight" Foreground="#FFCBC9C9" Text="MLNotifications" HorizontalAlignment="Center" FontSize="24"  VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run FontSize="12" Foreground="gray" >You have  </Run>
+                        <Run Text="{Binding NotificationsCount}" Foreground="Aqua" FontSize="14" FontWeight="Bold"/>
+                        <Run FontSize="12" Foreground="gray" > notifications pending</Run>
+                            </TextBlock>
+                            <TextBlock Text="Morales Larios" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,1,1" FontSize="9" Foreground="Gainsboro"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </tb:TaskbarIcon.TrayToolTip>
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Background="#F22B2A2A" >
+                    <MenuItem Header="Settings" Foreground="Gainsboro" Command="{Binding OpenSettingsViewCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/MLNotification.WPFClient;component/Images/settings1.png" Width="10" Height="10" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Exit"     Foreground="Gainsboro" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+
+    </Grid>
+</Window>
